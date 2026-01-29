@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd" identifier="id-KAP-SGCIB-Model">
+  <name xml:lang="fr">Module KAP - Architecture SGCIB KYC 2.0</name>
+
+  <elements>
+    <element identifier="id-analyst" xsi:type="BusinessActor">
+      <name xml:lang="fr">Analyste KYC (CLD)</name>
+    </element>
+    <element identifier="id-kyc-proc" xsi:type="BusinessProcess">
+      <name xml:lang="fr">Validation et Certification UBO</name>
+    </element>
+    <element identifier="id-ubo-form" xsi:type="BusinessObject">
+      <name xml:lang="fr">Formulaire UBO / Pièces d'identité</name>
+    </element>
+
+    <element identifier="id-kap-module" xsi:type="ApplicationComponent">
+      <name xml:lang="fr">Module KAP (Microservice Spring Boot)</name>
+    </element>
+    <element identifier="id-matching-srv" xsi:type="ApplicationService">
+      <name xml:lang="fr">Service de Matching (Fuzzy Logic)</name>
+    </element>
+    <element identifier="id-auto-create" xsi:type="ApplicationService">
+      <name xml:lang="fr">Automatisation : Création KAP</name>
+    </element>
+    <element identifier="id-auto-mod" xsi:type="ApplicationService">
+      <name xml:lang="fr">Automatisation : Modification KAP</name>
+    </element>
+    <element identifier="id-ksm-core" xsi:type="ApplicationComponent">
+      <name xml:lang="fr">Système Maître KSM</name>
+    </element>
+    <element identifier="id-temp-data" xsi:type="DataObject">
+      <name xml:lang="fr">KAP Temporary Data</name>
+    </element>
+
+    <element identifier="id-aks-node" xsi:type="Node">
+      <name xml:lang="fr">Azure Kubernetes Service (AKS)</name>
+    </element>
+    <element identifier="id-pg-db" xsi:type="SystemSoftware">
+      <name xml:lang="fr">Azure PostgreSQL</name>
+    </element>
+  </elements>
+
+  <relationships>
+    <relationship identifier="rel-1" source="id-analyst" target="id-kyc-proc" xsi:type="Assignment" />
+    <relationship identifier="rel-2" source="id-kyc-proc" target="id-kap-module" xsi:type="Triggering" />
+    
+    <relationship identifier="rel-3" source="id-kap-module" target="id-matching-srv" xsi:type="Realization" />
+    <relationship identifier="rel-4" source="id-kap-module" target="id-auto-create" xsi:type="Realization" />
+    <relationship identifier="rel-5" source="id-kap-module" target="id-auto-mod" xsi:type="Realization" />
+    <relationship identifier="rel-6" source="id-auto-create" target="id-ksm-core" xsi:type="Serving" />
+    <relationship identifier="rel-7" source="id-kap-module" target="id-temp-data" xsi:type="Access" />
+
+    <relationship identifier="rel-8" source="id-aks-node" target="id-kap-module" xsi:type="Hosting" />
+    <relationship identifier="rel-9" source="id-temp-data" target="id-pg-db" xsi:type="Association" />
+  </relationships>
+</model>
