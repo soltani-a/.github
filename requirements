@@ -1,0 +1,63 @@
+L'analyse croisée des documents et de l'écosystème **Société Générale (SG)** permet de structurer les exigences et les hypothèses structurantes pour le projet **KAP**.
+
+---
+
+## 📋 Requirements (Exigences)
+
+### 1. Exigences Fonctionnelles
+
+* **Identification UBO & Dédoublonnage** : Le système doit identifier les bénéficiaires effectifs (UBO) en remontant les chaînes de détention via des sources externes (**Moodys, Maestro**) et internes (**KSM**).
+* **Fuzzy Matching de haute précision** : Réconciliation obligatoire entre les données temporaires et le référentiel de **800 000 entités** pour éviter les doublons.
+* **Orchestration du Client Outreach** : Gestion d'un workflow asynchrone pour la collecte et la certification des documents manquants (Passeports, formulaires UBO).
+* **Automatisation des mises à jour KSM** : Exécution automatique des commandes de **Création**, **Modification** (Métadonnées) et **Ajout de rôles** suite à la validation humaine (CLD).
+* **Vérification Réglementaire** : Contrôle systématique des données consolidées face aux **Registres UBO nationaux** et escalade à la **CPLE** (Conformité) si nécessaire.
+
+### 2. Exigences Techniques & Standards SG
+
+* **Stack Logicielle** : Backend en **Java (Spring Boot)**, potentiellement avec **Jersey** pour la conformité historique des services Web.
+* **Infrastructure Cloud** : Déploiement conteneurisé (**Docker**) sur **Azure Kubernetes Service (AKS)**.
+* **Performance & Latence** : Garantie d'une faible latence sous forte charge, validée par des tests **Gatling**.
+* **Observabilité & Logs** : Utilisation impérative de **Vortex** pour le streaming des logs vers Kafka/Splunk/ELK.
+* **Sécurité & IAM** : Authentification via **Sparky** (OAuth2/API Manager) et chiffrement des données sensibles avec **CASA** (KeySecure).
+
+---
+
+## 💡 Hypothèses (Assumptions)
+
+| Catégorie | Hypothèse soulevée |
+| --- | --- |
+| **Architecture Hybride** | L'application tourne sur **Azure AKS**, mais consomme les services "Sociaux" internes (Vault, Vortex, Sparky, FGAD/EAD) via le réseau privé SG. |
+| **Gestion d'État** | La base **PostgreSQL** managée sur Azure sert de machine à états pour stocker les "Temporary Data" pendant les phases d'attente du Client Outreach. |
+| **Stratégie CI/CD** | Le scénario privilégié est **GitHub Actions** via SGithub, utilisant les **SGSetupTools** pour automatiser Terraform et Vault. |
+| **Provisioning** | Le provisionnement des ressources Azure est géré par Terraform avec un `tfstate` stocké sur un bucket **Scality S3** interne SG. |
+| **Stockage Documentaire** | Les documents d'identité (passeports) ne sont pas stockés dans la DB KAP mais dans les solutions dédiées **FGAD/EAD** de la SG. |
+
+---
+
+## 🛠️ Implémentation du Scaffolding (Exemple)
+
+Conformément aux standards SG, le bootstrapping du projet Java pourrait être automatisé. Voici un exemple de structure de configuration pour les commentaires techniques :
+
+```java
+/**
+ * Main configuration for the KAP Integration Service.
+ * Note: All technical comments must be in English.
+ */
+@Configuration
+public class KapServiceConfiguration {
+
+    // Integration with SG Vortex for centralized logging
+    @Bean
+    public VortexLogger vortexLogger() {
+        // Implementation logic for Kafka streaming
+        return new VortexLogger();
+    }
+}
+
+```
+
+---
+
+### Prochaine étape suggérée
+
+Souhaitez-vous que je rédige le **comparatif détaillé des deux scénarios de déploiement** (Full Azure vs Hybride SG/Azure) pour aider à l'arbitrage avec les équipes ASI ?
