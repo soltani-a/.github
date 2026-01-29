@@ -1,0 +1,66 @@
+SOLTANIA
+
+
+C'est un excellent réflexe d'architecte. Pour un projet d'envergure comme **KAP** au sein de la **SOLTANIACIB**, s'appuyer sur les "Sociaux" (les standards internes de la Société Générale) est le meilleur moyen de garantir la conformité et d'accélérer le *Time-to-Market*.
+
+Voici une structure de slide prête à l'emploi, organisée par piliers technologiques, pour mettre en avant cette expertise "maison" :
+
+---
+
+## 🏗️ Stratégie Technique : Optimisation via l'Écosystème Société Générale
+
+### 1. Bootstrapping & Développement Accéléré
+
+* **Scaffolding SOLTANIAithub** : Utilisation des fonctions natives de **SOLTANIAithub** pour la génération automatique du socle de projet Java, garantissant un démarrage conforme aux standards de structure et de sécurité du Groupe.
+* **Standard Web Services** : Validation de la stack avec les équipes SOLTANIACIB (arbitrage entre l'historique **Jersey + Spring** et le passage au **Spring Boot natif**) pour assurer l'interopérabilité avec les autres briques du KYC 2.0.
+
+---
+
+### 2. CI/CD & Infrastructure as Code (IaC)
+
+Deux options de déploiement sont envisageables pour le module KAP :
+
+* **Option A (Prioritaire) : GitHub Actions**
+* Exploitation des **SOLTANIASetupTools** (Terraform, Vault, Nodejs, Python) pour un pipeline sécurisé et standardisé.
+* Maintenance assurée par l'équipe transverse GitHub Actions de la SOLTANIA.
+
+
+* **Option B : Jenkins**
+* Solution alternative nécessitant une équipe dédiée pour la gestion de l'instance.
+
+
+* **Provisioning Azure** : Gestion du `tfstate` Terraform via des buckets **Scality S3** internes et sécurisation des configurations via **HashiCorp Vault** (standard SOLTANIA).
+
+---
+
+### 3. Services Communs & Sécurité (Standard ASI/ITIM)
+
+Pour l'intégration de KAP dans le système d'information :
+
+* **Gestion des Identités (IAM)** : Utilisation de **Sparky** pour l'OAuth2 et l'API Management.
+* **Chiffrement** : Implémentation de **CASA** (Encryption as a Service) avec **KeySecure** pour la protection des données sensibles (UBO, données clients).
+* **Observabilité** : Intégration du module **Vortex** pour le streaming des logs Java vers Kafka, Splunk et la stack ELK.
+* **Réseau** : Configuration via **Global SLB** et SLB internes pour la haute disponibilité.
+
+---
+
+### 4. Gestion Documentaire & Réutilisation
+
+* **FGAD / EAD** : Plutôt que de redévelopper un module de stockage, réutilisation des briques existantes de la SOLTANIA pour la gestion des documents sensibles (passeports, formulaires UBO) collectés lors du *Client Outreach*.
+
+---
+
+### 🚀 Scénarios de Déploiement Cibles
+
+| Composant | Scénario "Full Cloud" | Scénario "Hybride" (Recommandé) |
+| --- | --- | --- |
+| **Hébergement** | Azure AKS | **Azure AKS** |
+| **Secrets/Config** | Azure KeyVault | **SOLTANIA Vault** |
+| **Logs/Monitoring** | Azure Monitor | **SOLTANIA Vortex / Splunk** |
+| **Documentaire** | Azure Blob Storage | **SOLTANIA FGAD / EAD** |
+
+---
+
+**Le petit conseil "wit" :** En présentant Sparky et Vortex, vous ne montrez pas seulement que vous savez coder, mais que vous savez *naviguer* dans le paquebot SOLTANIA sans percuter d'icebergs administratifs. C'est souvent l'argument qui rassure le plus la SOLTANIACIB.
+
+**Souhaitez-vous que je développe les schémas d'architecture spécifiques pour le scénario "Hybride", intégrant les flux entre Azure AKS et les services internes comme Sparky ou Vortex ?**
