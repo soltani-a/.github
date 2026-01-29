@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram id="KAP-ArchiMate" name="KAP ArchiMate View">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <mxCell id="B1" value="Analyste KYC (CLD)" style="html=1;dropTarget=0;fillColor=#ffffcc;strokeColor=#d6b656;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="B2" value="Validation &amp; Certification UBO" style="html=1;dropTarget=0;fillColor=#ffffcc;strokeColor=#d6b656;rounded=1" vertex="1" parent="1">
+          <mxGeometry x="340" y="60" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="A1" value="Module KAP (Spring Boot)" style="html=1;dropTarget=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="340" y="200" width="200" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="A2" value="Matching Service&#xa;(Fuzzy Logic)" style="html=1;dropTarget=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="A1">
+          <mxGeometry x="20" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="A3" value="Automated Creation UC" style="html=1;dropTarget=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="A1">
+          <mxGeometry x="20" y="110" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="A4" value="Automated Modification UC" style="html=1;dropTarget=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="A1">
+          <mxGeometry x="20" y="180" width="160" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="A5" value="KSM Core System" style="html=1;dropTarget=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="700" y="310" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="A6" value="KAP Temporary Data" style="shape=note;whiteSpace=wrap;html=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="70" y="310" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="T1" value="Azure Kubernetes Service" style="html=1;dropTarget=0;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="340" y="560" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="T2" value="Azure PostgreSQL" style="html=1;dropTarget=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="70" y="560" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="R1" value="" style="endArrow=block;endFill=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="B1" target="B2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="R2" value="Triggers" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="B2" target="A1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="R3" value="" style="endArrow=block;endFill=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="A1" target="A5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="R4" value="" style="endArrow=none;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="A1" target="T1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="R5" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="A1" target="A6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
