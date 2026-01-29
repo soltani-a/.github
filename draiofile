@@ -1,0 +1,388 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0" version="29.3.6" pages="5">
+  <diagram id="Technical-View" name="1. Architecture Technique">
+    <mxGraphModel dx="1418" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qAgklneNyxZe6kZtTXqg-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" value="KAP Module (Spring Boot Microservice on AKS)" vertex="1">
+          <mxGeometry height="340" width="480" x="330" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-2" parent="qAgklneNyxZe6kZtTXqg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="API Layer&#xa;(OpenAPI / JAX-RS)" vertex="1">
+          <mxGeometry height="60" width="140" x="20" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-3" parent="qAgklneNyxZe6kZtTXqg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="Matching Engine&#xa;(Fuzzy Matching Logic)" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-4" parent="qAgklneNyxZe6kZtTXqg-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="Outreach Manager&#xa;(Email &amp; Doc Workflow)" vertex="1">
+          <mxGeometry height="60" width="140" x="20" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-5" parent="qAgklneNyxZe6kZtTXqg-1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;startSize=23;" value="Automation Service&#xa;(UC Executors)" vertex="1">
+          <mxGeometry height="130" width="250" x="210" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-6" parent="qAgklneNyxZe6kZtTXqg-5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="Creation&#xa;Worker" vertex="1">
+          <mxGeometry height="70" width="70" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-7" parent="qAgklneNyxZe6kZtTXqg-5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="Modification&#xa;Worker" vertex="1">
+          <mxGeometry height="70" width="70" x="90" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-8" parent="qAgklneNyxZe6kZtTXqg-5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="Role&#xa;Worker" vertex="1">
+          <mxGeometry height="70" width="70" x="170" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-9" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#d5e8d4;strokeColor=#82b366;" value="Azure Database for PostgreSQL&#xa;(KAP Temporary Data)" vertex="1">
+          <mxGeometry height="100" width="200" x="470" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-10" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="DevSecOps &amp; Observability&#xa;(GitHub, Sonar, Gatling)" vertex="1">
+          <mxGeometry height="160" width="440" x="350" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Master System&#xa;(KSM Core)" vertex="1">
+          <mxGeometry height="60" width="160" x="930" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-12" parent="1" style="html=1;whiteSpace=wrap;shape=step;perimeter=stepPerimeter;fillColor=#e1d5e7;strokeColor=#9673a6;" value="New KSM Screen&#xa;(CLD Validation)" vertex="1">
+          <mxGeometry height="60" width="160" x="40" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-13" edge="1" parent="1" source="qAgklneNyxZe6kZtTXqg-12" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="qAgklneNyxZe6kZtTXqg-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qAgklneNyxZe6kZtTXqg-14" edge="1" parent="1" source="qAgklneNyxZe6kZtTXqg-1" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="qAgklneNyxZe6kZtTXqg-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ArchiMate-View" name="2. Vue ArchiMate">
+    <mxGraphModel dx="1418" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="A-0" />
+        <mxCell id="A-1" parent="A-0" />
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-0" parent="A-1" style="html=1;fillColor=#ffffcc;strokeColor=#d6b656;fontStyle=1" value="Analyste KYC (CLD)" vertex="1">
+          <mxGeometry height="60" width="160" x="240" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-1" parent="A-1" style="html=1;fillColor=#ffffcc;strokeColor=#d6b656;rounded=1" value="Validation &amp; Certification UBO" vertex="1">
+          <mxGeometry height="60" width="200" x="520" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-2" parent="A-1" style="html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" value="Module KAP (Spring Boot)" vertex="1">
+          <mxGeometry height="280" width="200" x="520" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-3" parent="aSdq5YyNPSjh9rj8EDPf-2" style="html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Matching Service" vertex="1">
+          <mxGeometry height="50" width="160" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-4" parent="aSdq5YyNPSjh9rj8EDPf-2" style="html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Automated Creation UC" vertex="1">
+          <mxGeometry height="50" width="160" x="20" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-5" parent="aSdq5YyNPSjh9rj8EDPf-2" style="html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Automated Modification UC" vertex="1">
+          <mxGeometry height="50" width="160" x="20" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-6" parent="A-1" style="html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="KSM Core System" vertex="1">
+          <mxGeometry height="60" width="160" x="880" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-7" parent="A-1" style="html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" value="Azure Kubernetes Service" vertex="1">
+          <mxGeometry height="60" width="200" x="520" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-8" parent="A-1" style="html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Azure PostgreSQL" vertex="1">
+          <mxGeometry height="60" width="140" x="250" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-9" edge="1" parent="A-1" source="aSdq5YyNPSjh9rj8EDPf-0" style="endArrow=block;endFill=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="aSdq5YyNPSjh9rj8EDPf-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-10" edge="1" parent="A-1" source="aSdq5YyNPSjh9rj8EDPf-1" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="aSdq5YyNPSjh9rj8EDPf-2" value="Triggers">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="aSdq5YyNPSjh9rj8EDPf-11" edge="1" parent="A-1" source="aSdq5YyNPSjh9rj8EDPf-2" style="endArrow=block;endFill=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="aSdq5YyNPSjh9rj8EDPf-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="User-Journey-View" name="3. User Journey - Search KSM">
+    <mxGraphModel dx="1418" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1" value="Key Account Parties TARGET&#xa;USER JOURNEY - KAP MANAGEMENT SEARCH KSM" vertex="1">
+          <mxGeometry height="40" width="800" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="H1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;fontStyle=1" value="Search KAP DB (KSM)" vertex="1">
+          <mxGeometry height="30" width="300" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="H2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;strokeColor=#005700;fontColor=#ffffff;fontStyle=1" value="Data Validation" vertex="1">
+          <mxGeometry height="30" width="220" x="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="H3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;fontStyle=1" value="Update KSM KAP DB" vertex="1">
+          <mxGeometry height="30" width="380" x="600" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="H4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;strokeColor=#B20000;fontColor=#ffffff;fontStyle=1" value="CHECK REGISTRY" vertex="1">
+          <mxGeometry height="30" width="140" x="1000" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="box-matching" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;strokeWidth=2;fontStyle=1;startSize=25;" value="KAP MATCHING" vertex="1">
+          <mxGeometry height="480" width="160" x="40" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="gear-matching" parent="box-matching" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="⚙️" vertex="1">
+          <mxGeometry height="25" width="30" x="10" as="geometry" />
+        </mxCell>
+        <mxCell id="pp-data" parent="box-matching" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=10;" value="TEMPORARY DATA&#xa;PP" vertex="1">
+          <mxGeometry height="35" width="130" x="15" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="fuzzy-pp" parent="box-matching" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontSize=10;fontStyle=2" value="FUZZY Matching&#xa;Temporary vs.&#xa;KSM" vertex="1">
+          <mxGeometry height="55" width="130" x="15" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ksm-ref" parent="box-matching" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;fontStyle=1;fontSize=10;" value="KSM" vertex="1">
+          <mxGeometry height="30" width="130" x="15" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-data" parent="box-matching" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=10;" value="TEMPORARY DATA&#xa;PM" vertex="1">
+          <mxGeometry height="35" width="130" x="15" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="fuzzy-pm" parent="box-matching" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontSize=10;fontStyle=2" value="FUZZY Matching&#xa;Temporary vs.&#xa;KSM (MAESTRO)" vertex="1">
+          <mxGeometry height="65" width="130" x="15" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="ksm-mae-ref" parent="box-matching" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;fontStyle=1;fontSize=10;" value="KSM/MAE" vertex="1">
+          <mxGeometry height="30" width="130" x="15" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="kap-exists" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" value="KAP EXISTS?" vertex="1">
+          <mxGeometry height="110" width="110" x="230" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="box-exists" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;startSize=25;fontStyle=1" value="Exists in KSM" vertex="1">
+          <mxGeometry height="130" width="160" x="380" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="alert" parent="box-exists" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" value="⚠️" vertex="1">
+          <mxGeometry height="25" width="40" x="120" as="geometry" />
+        </mxCell>
+        <mxCell id="kap-pm1" parent="box-exists" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=10;" value="KAP PM 1&#xa;Shareholder" vertex="1">
+          <mxGeometry height="30" width="140" x="10" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="kap-others" parent="box-exists" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=9;" value="KAP 1 (UBO)   KAP 4 (CL, LR)&#xa;KAP 2 (UBO)   KAP 5 (CP)" vertex="1">
+          <mxGeometry height="40" width="140" x="10" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="manual-confirm-exists" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=3;fontStyle=1;fontSize=11;" value="CLD confirm&#xa;existing KAP" vertex="1">
+          <mxGeometry height="80" width="120" x="580" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="person-icon1" parent="manual-confirm-exists" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" value="👤" vertex="1">
+          <mxGeometry height="30" width="40" x="40" y="-30" as="geometry" />
+        </mxCell>
+        <mxCell id="temp-label1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=9;fontStyle=1" value="TEMPORARY DATA" vertex="1">
+          <mxGeometry height="20" width="100" x="590" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="check1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" value="✅" vertex="1">
+          <mxGeometry height="30" width="40" x="710" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="cross1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontColor=#FF0000;" value="❌" vertex="1">
+          <mxGeometry height="30" width="40" x="550" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="new-data-decision" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="DOES KAP&#xa;HAVE NEW&#xa;DATA ?" vertex="1">
+          <mxGeometry height="90" width="90" x="760" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="auto-mod" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;fontStyle=1;fontSize=11;" value="MODIFICATION&#xa;KAP IN KSM" vertex="1">
+          <mxGeometry height="50" width="130" x="880" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="gear-mod" parent="auto-mod" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="⚙️" vertex="1">
+          <mxGeometry height="25" width="25" as="geometry" />
+        </mxCell>
+        <mxCell id="metadata-lbl" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=10;" value="METADATA" vertex="1">
+          <mxGeometry height="20" width="130" x="880" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="auto-role-top" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;fontStyle=1;fontSize=11;" value="ROLE TO ADD&#xa;ON CUSTOMER" vertex="1">
+          <mxGeometry height="50" width="130" x="1030" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="gear-role1" parent="auto-role-top" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="⚙️" vertex="1">
+          <mxGeometry height="25" width="25" as="geometry" />
+        </mxCell>
+        <mxCell id="role-lbl" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=10;" value="ROLE" vertex="1">
+          <mxGeometry height="20" width="130" x="1030" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="box-new" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;startSize=25;fontStyle=1" value="Does not exist in KSM" vertex="1">
+          <mxGeometry height="110" width="160" x="380" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="kap-pm2" parent="box-new" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=10;" value="KAP PM 2&#xa;Shareholder" vertex="1">
+          <mxGeometry height="30" width="140" x="10" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="kap-others2" parent="box-new" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;fontSize=9;" value="KAP 6 (PWDA)  KAP 3 (UBO)" vertex="1">
+          <mxGeometry height="30" width="140" x="10" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="manual-confirm-new" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=3;fontStyle=1;fontSize=11;" value="CLD confirm&#xa;new KAP" vertex="1">
+          <mxGeometry height="80" width="120" x="580" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="person-icon2" parent="manual-confirm-new" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" value="👤" vertex="1">
+          <mxGeometry height="30" width="40" x="40" y="-30" as="geometry" />
+        </mxCell>
+        <mxCell id="auto-create" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;fontStyle=1;fontSize=11;" value="NEW KAP&#xa;CREATION IN KSM" vertex="1">
+          <mxGeometry height="60" width="150" x="780" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="gear-create" parent="auto-create" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="⚙️" vertex="1">
+          <mxGeometry height="25" width="25" as="geometry" />
+        </mxCell>
+        <mxCell id="meta-role-lbl" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;fontSize=10;" value="ROLE + METADATA" vertex="1">
+          <mxGeometry height="25" width="150" x="780" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="box-check-ubo" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;strokeWidth=2;fontStyle=1;startSize=40;" value="CHECK -&#xa;UBO REGISTRY" vertex="1">
+          <mxGeometry height="300" width="140" x="1030" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="gear-check" parent="box-check-ubo" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" value="⚙️" vertex="1">
+          <mxGeometry height="30" width="30" x="10" y="5" as="geometry" />
+        </mxCell>
+        <mxCell id="check-ksm" parent="box-check-ubo" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;fontSize=10;" value="KSM" vertex="1">
+          <mxGeometry height="30" width="120" x="10" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="check-logic" parent="box-check-ubo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontSize=10;fontStyle=2" value="UBO ONLY&#xa;KSM vs.&#xa;UBO registry" vertex="1">
+          <mxGeometry height="55" width="120" x="10" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="check-reg" parent="box-check-ubo" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;fontStyle=1;fontSize=10;" value="UBO REGISTRY" vertex="1">
+          <mxGeometry height="30" width="120" x="10" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" edge="1" parent="1" source="kap-exists" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;" target="box-exists" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c2" edge="1" parent="1" source="kap-exists" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;" target="box-new" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="505" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="1" source="box-exists" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;" target="manual-confirm-exists" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" edge="1" parent="1" source="manual-confirm-exists" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;" target="new-data-decision" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" edge="1" parent="1" source="box-new" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;" target="manual-confirm-new" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" edge="1" parent="1" source="manual-confirm-new" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;" target="auto-create" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" edge="1" parent="1" source="manual-confirm-exists" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;strokeWidth=2;strokeColor=#FF0000;" target="auto-create" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="380" />
+              <mxPoint x="730" y="495" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Azure-Java-Postgres" name="Azure Reference Architecture">
+    <mxGraphModel dx="1418" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ext-user" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="KSM Users&#xa;(Analysts)" vertex="1">
+          <mxGeometry height="60" width="30" x="50" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="azure-cloud" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" value="Microsoft Azure Cloud" vertex="1">
+          <mxGeometry height="560" width="880" x="160" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway" parent="azure-cloud" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1" value="Azure API Management&#xa;or AKS Ingress Controller" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="aks-cluster" parent="azure-cloud" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#008a00;startSize=25;fontStyle=1" value="Azure Kubernetes Service (AKS)" vertex="1">
+          <mxGeometry height="240" width="340" x="280" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-1" parent="aks-cluster" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="KAP Pod (Docker)&#xa;Java / Spring Boot" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pod-2" parent="aks-cluster" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="KAP Pod (Docker)&#xa;Java / Spring Boot" vertex="1">
+          <mxGeometry height="60" width="120" x="180" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="worker-nodes" parent="aks-cluster" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=2;fontSize=10;" value="Scalable Worker Nodes" vertex="1">
+          <mxGeometry height="30" width="140" x="100" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres-db" parent="azure-cloud" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" value="Azure Database for&#xa;PostgreSQL (Managed)" vertex="1">
+          <mxGeometry height="100" width="140" x="700" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="devops" parent="azure-cloud" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;startSize=25;" value="DevSecOps &amp; Observability Platform" vertex="1">
+          <mxGeometry height="90" width="340" x="280" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="tools" parent="devops" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" value="GitHub Actions | Sonar | Gatling | Prometheus" vertex="1">
+          <mxGeometry height="30" width="270" x="35" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" edge="1" parent="1" source="ext-user" style="endArrow=classic;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="gateway" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" edge="1" parent="1" source="gateway" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="aks-cluster" value="HTTP/REST">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="1" source="aks-cluster" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;entryPerimeter=0;" target="postgres-db" value="JDBC (SSL)">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Z0UV1HTVXlIPUt-DKzZg" name="Page-6">
+    <mxGraphModel dx="1418" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-23" edge="1" parent="1" source="SNgLGaFRZK_2NQqv8RW_-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="SNgLGaFRZK_2NQqv8RW_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;rotation=-90;" value="API Gateway" vertex="1">
+          <mxGeometry height="37.5" width="447.27" x="-164.88" y="362.56" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-20" edge="1" parent="1" source="SNgLGaFRZK_2NQqv8RW_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;" target="SNgLGaFRZK_2NQqv8RW_-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" value="KAP Module (Spring Boot on AKS)" vertex="1">
+          <mxGeometry height="440" width="520" x="160" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-13" edge="1" parent="1" source="SNgLGaFRZK_2NQqv8RW_-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="SNgLGaFRZK_2NQqv8RW_-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-14" edge="1" parent="1" source="SNgLGaFRZK_2NQqv8RW_-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="SNgLGaFRZK_2NQqv8RW_-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-15" edge="1" parent="1" source="SNgLGaFRZK_2NQqv8RW_-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="SNgLGaFRZK_2NQqv8RW_-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="API Layer&lt;br&gt;(OpenAPI / JAX-RS)" vertex="1">
+          <mxGeometry height="50" width="470" x="180" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Fuzzy Matching Engine" vertex="1">
+          <mxGeometry height="50" width="130" x="180" y="388.75" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Outreach Manager&lt;br&gt;(Email / Doc Workflow)" vertex="1">
+          <mxGeometry height="50" width="130" x="350" y="388.75" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Automation Service&lt;/span&gt;&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(UC Executors)&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="130" x="520" y="388.75" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Creation worker" vertex="1">
+          <mxGeometry height="40" width="105" x="532.5" y="438.75" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Modification worker" vertex="1">
+          <mxGeometry height="40" width="105" x="532.5" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Modification worker" vertex="1">
+          <mxGeometry height="40" width="105" x="532.5" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-16" edge="1" parent="1" source="SNgLGaFRZK_2NQqv8RW_-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.015;entryY=0.541;entryDx=0;entryDy=0;entryPerimeter=0;" target="SNgLGaFRZK_2NQqv8RW_-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-18" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Azure_Database_for_PostgreSQL_servers.svg;" value="Azure Database for PostgreSQL&lt;br&gt;KAP Temporary Data&lt;br&gt;Deduplication &amp;amp; Consolidation State" vertex="1">
+          <mxGeometry height="270" width="205.2" x="317.4" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="External Data Providers&lt;br&gt;(Moodys, Maestro)" vertex="1">
+          <mxGeometry height="60" width="120" x="720" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Master System&lt;br&gt;(KSM Core)" vertex="1">
+          <mxGeometry height="60" width="120" x="720" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Compliance &amp;amp; Registry&lt;br&gt;(UBO Registry, CPLE)" vertex="1">
+          <mxGeometry height="60" width="120" x="720" y="400.06" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-30" edge="1" parent="1" source="SNgLGaFRZK_2NQqv8RW_-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.998;entryY=0.616;entryDx=0;entryDy=0;entryPerimeter=0;" target="SNgLGaFRZK_2NQqv8RW_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-31" edge="1" parent="1" source="SNgLGaFRZK_2NQqv8RW_-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.998;entryY=0.343;entryDx=0;entryDy=0;entryPerimeter=0;" target="SNgLGaFRZK_2NQqv8RW_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SNgLGaFRZK_2NQqv8RW_-32" edge="1" parent="1" source="SNgLGaFRZK_2NQqv8RW_-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.004;entryY=0.184;entryDx=0;entryDy=0;entryPerimeter=0;" target="SNgLGaFRZK_2NQqv8RW_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
