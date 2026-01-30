@@ -1,0 +1,131 @@
+openapi: 3.0.0
+info:
+  title: KAP Module API
+  description: API for automating Key Account Parties management, including pre-check, client outreach, and KSM synchronization.
+  version: 1.0.0
+
+tags:
+  - name: Pre-check & Matching
+    description: Initial validation and fuzzy matching logic
+  - name: Outreach & Certification
+    description: Form generation and client communication
+  - name: KSM Management
+    description: Operations on the KSM reference database
+  - name: Consolidation
+    description: Final data merging and validation
+
+paths:
+  # --- PRE-CHECK & MATCHING ---
+  /pre-check/evaluate:
+    post:
+      tags: [Pre-check & Matching]
+      summary: Perform KAP DCE pre-check
+      description: Executes fuzzy matching to decide if a party can skip confirmation.
+      responses:
+        200:
+          description: Evaluation result (SKIP_CONFIRMATION or MANUAL_REQUIRED)
+
+  /ksm/search/match:
+    post:
+      tags: [Pre-check & Matching]
+      summary: Advanced Fuzzy Matching
+      description: Compares temporary PP/PM data against KSM and MAESTRO databases.
+      responses:
+        200:
+          description: List of potential matches with confidence scores
+
+  # --- OUTREACH & CERTIFICATION ---
+  /certification/forms/ubo:
+    get:
+      tags: [Outreach & Certification]
+      summary: Generate pre-filled UBO form
+      description: Returns a pre-filled form based on existing data for client certification.
+      responses:
+        200:
+          description: PDF or JSON representation of the UBO form
+
+  /certification/email/prepare:
+    post:
+      tags: [Outreach & Certification]
+      summary: Prepare outreach email
+      description: Generates the email body and attaches required documents.
+      responses:
+        200:
+          description: Email template and attachments ready for review
+
+  /certification/email/send:
+    post:
+      tags: [Outreach & Certification]
+      summary: Send outreach email
+      description: Dispatches the certification request to the client.
+      responses:
+        200:
+          description: Email sent successfully
+
+  /outreach/acknowledge:
+    post:
+      tags: [Outreach & Certification]
+      summary: Confirm email reception
+      description: Logs that the client has received/opened the outreach email.
+      responses:
+        200:
+          description: Status updated
+
+  /outreach/submit-docs:
+    post:
+      tags: [Outreach & Certification]
+      summary: Submit outreach documents
+      description: Receives the signed UBO form, Power of Attorney, and other annexes.
+      responses:
+        201:
+          description: Documents uploaded and queued for analysis
+
+  # --- KSM MANAGEMENT ---
+  /ksm/parties:
+    post:
+      tags: [KSM Management]
+      summary: Create new KAP
+      description: Creates a new Key Account Party record in the KSM database.
+      responses:
+        201:
+          description: Party created successfully
+
+  /ksm/parties/{id}:
+    patch:
+      tags: [KSM Management]
+      summary: Modify existing KAP
+      description: Updates metadata for an existing party in KSM.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Party metadata updated
+
+  /ksm/parties/{id}/roles:
+    post:
+      tags: [KSM Management]
+      summary: Add role to customer
+      description: Assigns a new role (UBO, CP, LR) to an existing customer in KSM.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Role added successfully
+
+  # --- CONSOLIDATION ---
+  /consolidation/finalize:
+    post:
+      tags: [Consolidation]
+      summary: Final data consolidation
+      description: Merges all data sources into a single "source of truth" temporary structure.
+      responses:
+        200:
+          description: Final consolidated KAP data
